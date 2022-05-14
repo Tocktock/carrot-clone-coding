@@ -11,7 +11,8 @@
     "@prisma/client": "^3.14.0",
     "next": "^12.1.6",
     "react": "^18.0.0-rc.3",
-    "react-dom": "^18.0.0-rc.3"
+    "react-dom": "^18.0.0-rc.3",
+    "react-hook-form": "^7.31.1"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.4.0",
