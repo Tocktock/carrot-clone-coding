@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import withHandler from "@libs/server/withHandler";
-import { client } from "@libs/server/client";
+import client from "@libs/server/client";
 // import twilio from "twilio";
 // import mail from "@sendgrid/mail";
 
@@ -52,4 +52,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   });
 }
 
-export default withHandler({ method: "POST", handler, isPrivate: false });
+export default withHandler({ methods: ["POST"], handler, isPrivate: false });
