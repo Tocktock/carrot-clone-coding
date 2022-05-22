@@ -15,24 +15,19 @@ async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseType>
 ) {
-  const { token } = req.body;
-  const foundToken = await client.token.findUnique({
-    where: {
-      payload: token,
-    },
+  console.log(req.session);
+  const profile = await client.user.findUnique({
+    where: { id: req.session.user?.id },
   });
-  if (!foundToken) return res.status(404).end();
-  req.session.user = {
-    id: foundToken.userId,
-  };
-  await client.token.deleteMany({
-    where: {
-      userId: foundToken.userId,
-    },
+  res.json({
+    ok: true,
+    profile,
   });
-  await req.session.save();
-  res.json({ ok: true });
 }
+
 export default withApiSession(
-  withHandler({ method: "POST", handler, isPrivate: false })
+  withHandler({
+    method: "GET",
+    handler,
+  })
 );
