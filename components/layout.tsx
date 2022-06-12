@@ -125,12 +125,12 @@ export default function Layout({
               </svg>
               <span>채팅</span>
             </a>
-          </Link>{" "}
+          </Link>
           <Link href="/streams">
             <a
               className={cls(
                 "flex flex-col items-center space-y-2 ",
-                router.pathname === "/live"
+                router.pathname === "/streams"
                   ? "text-orange-500"
                   : "hover:text-gray-500 transition-colors"
               )}
